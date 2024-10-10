@@ -1,8 +1,8 @@
 # RhymeGPT
-Prompt for GPT-4o for Rhyming in Japanese
+GPT-4o Prompt Engineering for Rhyming in Japanese
 
 ## Environment
-- make conda environment
+### create conda environment
 ```
 conda create -n {env_name} python=3.10
 conda activate {env_name}
@@ -13,7 +13,7 @@ conda install conda-forge::unidecode
 conda install conda-forge::python-dotenv
 ```
 
-- make .env file
+### make .env file
 ```
 OPENAI_API_KEY={YOUR_API_KEY}
 ```
@@ -39,11 +39,11 @@ OPENAI_API_KEY={YOUR_API_KEY}
 ## ref
 - [韻ノート R-指定が踏んだ韻](https://in-note.com/rappers/1)
 - [OpenAI quickstart](https://platform.openai.com/docs/quickstart?quickstart-example=completions&language-preference=python)
-- [Qiita 【Python】漢字を平仮名やローマ字に変換する](https://qiita.com/twrcd1227/items/df4946b8b7caae58db71)
+- [Qiita【Python】漢字を平仮名やローマ字に変換する](https://qiita.com/twrcd1227/items/df4946b8b7caae58db71)
 
 ## Appendix
 
-- prompts
+### prompts
 
 ```
 def get_normal_prompt(input_word):
@@ -75,7 +75,7 @@ def get_better_prompt(input_word):
     '''
 ```
 
-- outputs for all inputs
+### outputs for all inputs
 
 ```
 input: ペンギンが踊る夢
