@@ -1,7 +1,8 @@
-# rhyme-gpt
-GPT for Rhyming in Japanese
+# RhymeGPT
+Prompt for GPT-4o for Rhyming in Japanese
 
 ## Environment
+- make conda environment
 ```
 conda create -n {env_name} python=3.10
 conda activate {env_name}
@@ -19,15 +20,16 @@ OPENAI_API_KEY={YOUR_API_KEY}
 
 ## 実験
 - 仮説：日本語で高度（単語や短文でほぼ全文字の母音が共通するほど）に韻を踏む性能は、few-shot promptingで向上するのではないか。
-- 方法：GPT-4oに2種類のプロンプトを与える（以下normal_prompt、better_promptと呼ぶ）。normal_promptはzero-shot prompt、better_promptはR指定さんの韻のうち私が好きなものにより構成されたfew-shot promptに対応する。ここで、input_wordとして事前にChatGPTにより生成された20個の単語に対して、上の2種類のプロンプトによって出力を生成し、その結果を評価した。
-- 評価方法：各入力と出力について、それぞれローマ字に直し母音（aiueo）を抽出し、それらのレーベンシュタイン距離を計算し、10-距離をその入出力ペアに対するスコアとする。20個のペアに対してこれを行い、その合計をプロンプトに対するスコアとする。
+- 方法：GPT-4oに2種類のプロンプトを与える（以下normal_prompt、better_promptと呼ぶ）。normal_promptはzero-shot prompt、better_promptはR指定さんの韻を抜粋・改変して構成されたfew-shot promptに対応する。ここで、事前にChatGPTにより生成された20個の単語を入力データセットとして上の2種類のプロンプトによって出力を生成し、その結果を評価した。
+- 評価方法：各入力と出力についてそれぞれローマ字に直して母音（aiueo）を抽出する。その後それらのレーベンシュタイン距離を計算し、10-距離をその入出力ペアに対するスコアとする。20個のペアに対してこれを行い、その合計をプロンプトに対するスコアとする。
 
 ## 結果
 - normal promptのスコアは67、better promptのスコアは94となった。
-- 合計点ではbetter promptの圧勝に見えるが、normal promptでは1度outputの形式がおかしくなっているせいで大きく点を失っていたり、better promptより高い点を獲得したものもあったりと、完璧ではなかった。
+- 合計スコアではbetter promptの圧勝に見えるが、個別に見るとbetter promptより高いスコアを獲得したサンプルが存在するため、必ずしも良い結果を与えるとは限らない。
+- また、normal promptでは1度outputの形式がおかしくなっているせいで大きくスコアを失っている。
 
 ## 改善案
-- outputが""や「」で囲まれる場合があるので、それをpythonで除去
+- outputが形式を守らない場合があるので、ルールベースに後処理を行う
 - 文脈を考慮して漢字からひらがなに変換する作業はpykakashiよりGPTの方が得意そう。
     - 一方で、ひらがなをローマ字に変換するのはGPTは苦手。
 - 評価を、レーベンシュタイン距離だけでなく次の2つを反映する。
