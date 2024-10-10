@@ -1,5 +1,5 @@
 # RhymeGPT
-GPT-4o Prompt Engineering for Rhyming in Japanese
+GPT-4o Few-Shot Prompting for Rhyming in Japanese
 
 ## Environment
 ### create conda environment
