@@ -30,17 +30,17 @@ OPENAI_API_KEY={YOUR_API_KEY}
 
 ## 改善案
 - outputが形式を守らない場合があるので、ルールベースに後処理を行う
-- 文脈を考慮して漢字からひらがなに変換する作業はpykakashiよりGPTの方が得意そう。
+- 文脈を考慮して漢字からひらがなに変換する作業はpykakasiよりGPTの方が得意そう。
     - 一方で、ひらがなをローマ字に変換するのはGPTは苦手。
 - 評価を、レーベンシュタイン距離だけでなく次の2つを反映する。
     - 意味が通っているか
     - 元と同じ言葉を含んでいないか
 
 ## ref
-- 韻ノート R-指定が踏んだ韻
-    - https://in-note.com/rappers/1
-- OpenAI quickstart
-    - https://platform.openai.com/docs/quickstart?quickstart-example=completions&language-preference=python
+- [韻ノート R-指定が踏んだ韻](https://in-note.com/rappers/1)
+- [OpenAI quickstart](https://platform.openai.com/docs/quickstart?quickstart-example=completions&language-preference=python)
+- [Qiita 【Python】漢字を平仮名やローマ字に変換する](https://qiita.com/twrcd1227/items/df4946b8b7caae58db71)
+
 ## Appendix
 
 - prompts
