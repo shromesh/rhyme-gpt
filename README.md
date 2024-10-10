@@ -36,6 +36,11 @@ OPENAI_API_KEY={YOUR_API_KEY}
     - 意味が通っているか
     - 元と同じ言葉を含んでいないか
 
+## ref
+- 韻ノート R-指定が踏んだ韻
+    - https://in-note.com/rappers/1
+- OpenAI quickstart
+    - https://platform.openai.com/docs/quickstart?quickstart-example=completions&language-preference=python
 ## Appendix
 
 - prompts
